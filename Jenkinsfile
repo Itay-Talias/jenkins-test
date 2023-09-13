@@ -5,10 +5,10 @@ pipeline {
             steps {
                 parallel(
                     a: {
-                        echo "python -m pytest test_add1.py"
+                        sh "python -m pytest test_add1.py"
                     },
                       b: {
-                        echo "python -m pytest test_add2.py"
+                        sh "python -m pytest test_add2.py"
                       }
                 )
             }
