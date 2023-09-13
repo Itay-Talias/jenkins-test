@@ -3,8 +3,14 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo 'Testing....'
-                sh 'python -m pytest'
+                parallel(
+                    a: {
+                        echo "python -m pytest test_add1.py"
+                    },
+                      b: {
+                        echo "python -m pytest test_add2.py"
+                      }
+                )
             }
           }
     }
