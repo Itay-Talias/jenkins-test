@@ -1,10 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('install dependencies') {
             steps {
-                sh 'python -m unittest discover -s path/to/tests -p "test_*.py"'
+                echo 'hii'
             }
+        } stage('Test') {
+            steps {
+                echo 'Testing....' sh 'python3 -m pytest test_add.py'
+            }
+          }
         }
     }
-}
